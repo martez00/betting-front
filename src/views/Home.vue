@@ -1,31 +1,31 @@
 <template>
-  <div class="home">
-
-  </div>
+    <div class="home">
+        <div class="container-fluid page-body-wrapper">
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <WelcomeMessage/>
+                    <Statistics/>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
-  import { RepositoryFactory } from './../repositories/RepositoryFactory';
-  const BetsRepository = RepositoryFactory.get('bets');
+    import WelcomeMessage from '@/partials/layout/header/WelcomeMessage'
+    import Statistics from '@/partials/layout/Statistics'
+    import {RepositoryFactory} from './../repositories/RepositoryFactory';
 
-export default {
-  name: 'home',
-  data() {
-    return {
-      isLoading: false,
-      bets: [],
-    };
-  },
-  created () {
-    //this.getBets();
-  },
-  methods: {
-    /*async getBets () {
-      this.isLoading = true;
-      const { data } = await BetsRepository.get();
-      this.isLoading = false;
-      this.bets = data;
-    }*/
-  }
-}
+    const BetsRepository = RepositoryFactory.get('bets');
+
+    export default {
+        name: 'home',
+        components: {
+            Statistics,
+            WelcomeMessage
+        },
+        data() {
+            return {};
+        },
+    }
 </script>

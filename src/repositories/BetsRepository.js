@@ -3,8 +3,8 @@ import Repository from "./Repository";
 const singularResource = "/bet";
 const pluralResource = "/bets";
 export default {
-    get() {
-        return Repository.get(`${pluralResource}`);
+    get(params) {
+        return Repository.get(`${pluralResource}${params}`);
     },
 
     getBet(postId) {
