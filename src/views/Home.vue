@@ -13,7 +13,7 @@
 
 <script>
     import WelcomeMessage from '@/partials/layout/header/WelcomeMessage'
-    import Statistics from '@/partials/layout/Statistics'
+    import Statistics from '@/partials/Statistics'
     import {RepositoryFactory} from './../repositories/RepositoryFactory';
 
     const BetsRepository = RepositoryFactory.get('bets');
