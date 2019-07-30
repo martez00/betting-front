@@ -5,6 +5,7 @@
                 <div class="content-wrapper">
                     <WelcomeMessage/>
                     <Statistics/>
+                    <TopUsers/>
                 </div>
             </div>
         </div>
@@ -13,16 +14,15 @@
 
 <script>
     import WelcomeMessage from '@/partials/layout/header/WelcomeMessage'
-    import Statistics from '@/partials/Statistics'
-    import {RepositoryFactory} from './../repositories/RepositoryFactory';
-
-    const BetsRepository = RepositoryFactory.get('bets');
+    import Statistics from '@/components/Statistics'
+    import TopUsers from '@/components/TopUsers'
 
     export default {
         name: 'home',
         components: {
             Statistics,
-            WelcomeMessage
+            WelcomeMessage,
+            TopUsers
         },
         data() {
             return {};

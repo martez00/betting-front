@@ -1,39 +1,42 @@
 <template>
-    <div class="row">
-        <div class="col-lg-4 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body pb-0">
-                    <div class="d-flex align-items-center justify-content-between">
-                        <h2 class="text-black font-weight-bold"><span v-if="betsByMonth != null">{{ betsByMonth.total }}</span></h2>
+        <div class="row">
+            <div class="col-lg-4 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body pb-0">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <h2 class="text-black font-weight-bold"><span v-if="betsByMonth != null">{{ betsByMonth.total }}</span>
+                            </h2>
+                        </div>
                     </div>
+                    <canvas id="bets"></canvas>
+                    <div class="line-chart-row-title">Bets</div>
                 </div>
-                <canvas id="bets"></canvas>
-                <div class="line-chart-row-title">Bets</div>
+            </div>
+            <div class="col-lg-4 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body pb-0">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <h2 class="text-warning font-weight-bold"><span v-if="usersByMonth != null">{{ usersByMonth.total }}</span>
+                            </h2>
+                        </div>
+                    </div>
+                    <canvas id="users"></canvas>
+                    <div class="line-chart-row-title">Users</div>
+                </div>
+            </div>
+            <div class="col-lg-4 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body pb-0">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <h2 class="text-danger font-weight-bold"><span v-if="balanceTransactionsByMonth != null">{{ balanceTransactionsByMonth.total }}</span>
+                            </h2>
+                        </div>
+                    </div>
+                    <canvas id="balance_transactions"></canvas>
+                    <div class="line-chart-row-title">Balance Transactions</div>
+                </div>
             </div>
         </div>
-        <div class="col-lg-4 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body pb-0">
-                    <div class="d-flex align-items-center justify-content-between">
-                        <h2 class="text-warning font-weight-bold"><span v-if="usersByMonth != null">{{ usersByMonth.total }}</span></h2>
-                    </div>
-                </div>
-                <canvas id="users"></canvas>
-                <div class="line-chart-row-title">Users</div>
-            </div>
-        </div>
-        <div class="col-lg-4 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body pb-0">
-                    <div class="d-flex align-items-center justify-content-between">
-                        <h2 class="text-danger font-weight-bold"><span v-if="balanceTransactionsByMonth != null">{{ balanceTransactionsByMonth.total }}</span></h2>
-                    </div>
-                </div>
-                <canvas id="balance_transactions"></canvas>
-                <div class="line-chart-row-title">Balance Transactions</div>
-            </div>
-        </div>
-    </div>
 </template>
 
 <script>
@@ -50,7 +53,7 @@
                 balanceTransactionsByMonth: null,
             };
         },
-        async beforeMount() {
+        async created() {
             await this.getBetsData();
             await this.getUsersData();
             await this.getBalanceTransactionsData();
