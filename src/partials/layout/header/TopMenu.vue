@@ -8,7 +8,7 @@
                 </div>
                 <ul class="navbar-nav navbar-nav-right">
                     <li class="nav-item dropdown  d-lg-flex d-none">
-                        <button type="button" class="btn btn-inverse-primary btn-sm">Login</button>
+                        <button type="button" class="btn btn-inverse-primary btn-sm" @click="showLoginModal">Login</button>
                     </li>
                 </ul>
                 <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="horizontal-menu-toggle">
@@ -16,12 +16,30 @@
                 </button>
             </div>
         </div>
+        <LoginModal  v-if="showLogin" @close="closeLoginModal"/>
     </nav>
 </template>
 
 <script>
+    import LoginModal from '@/components/modals/auth/Login';
     export default {
-        name: "TopMenu.vue"
+        name: "TopMenu.vue",
+        components: {
+            LoginModal
+        },
+        data() {
+            return {
+                showLogin: false,
+            };
+        },
+        methods: {
+            closeLoginModal() {
+                this.showLogin = false;
+            },
+            showLoginModal() {
+                this.showLogin = true;
+            },
+        }
     }
 </script>
 
