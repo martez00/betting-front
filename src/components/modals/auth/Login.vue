@@ -49,23 +49,17 @@
         },
         methods: {
             login() {
-                // get the redirect object
+                var app = this
                 this.$auth.login({
-                    data: {
-                        email: this.email,
-                        password: this.password
+                    params: {
+                        email: app.email,
+                        password: app.password
                     },
-                    success: function() {
-                        this.success = true
-                    },
-                    error: function() {
-                        this.has_error = true
-                        this.error = res.response.data.error
-                    },
-                    url: 'auth/login',
+                    success: function () {},
+                    error: function () {},
                     rememberMe: true,
-                    fetchUser: true
-                })
+                    fetchUser: true,
+                });
             },
             close() {
                 this.$emit('close');

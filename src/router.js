@@ -7,23 +7,32 @@ import Users from './views/Users.vue'
 Vue.use(Router)
 
 export default new Router({
-    linkExactActiveClass: 'ative',
+    linkExactActiveClass: 'active',
     mode: 'history',
     routes: [
         {
-          path: '/',
-          name: 'home',
-          component: Home
+            path: '/',
+            name: 'home',
+            component: Home,
+            meta: {
+                auth: undefined
+            }
         },
         {
             path: '/bets',
             name: 'bets',
-            component: Bets
+            component: Bets,
+            meta: {
+                auth: undefined
+            }
         },
         {
             path: '/users',
             name: 'users',
-            component: Users
+            component: Users,
+            meta: {
+                auth: undefined
+            }
         },
-  ]
+    ]
 })
