@@ -2,7 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
-
+import { apiURL } from "./config/vue.config";
 import 'bootstrap'
 import "./scss/style.scss"
 import App from './App.vue'
@@ -12,7 +12,10 @@ import JQuery from 'jquery'
 
 Vue.use(VueRouter);
 Vue.use(VueAxios, axios);
-axios.defaults.baseURL = 'http://betting.test/api/V1';
+
+Vue.config.productionTip = false;
+
+axios.defaults.baseURL = apiURL;
 
 window.$ = JQuery
 import 'chart.js'
