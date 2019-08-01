@@ -1,10 +1,10 @@
 <template>
-  <div id="app">
-    <div class="container-scroller">
-      <MainHeader/>
-      <router-view/>
+    <div id="app">
+        <div class="container-scroller">
+            <MainHeader/>
+            <router-view/>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -16,9 +16,25 @@
             MainHeader
         },
         data() {
-            return {
-
-            };
+            return {};
         },
+        created() {
+            window.addEventListener('scroll', this.headerFixed);
+        },
+        destroyed() {
+            window.removeEventListener('scroll', this.headerFixed);
+        },
+        methods: {
+            headerFixed(event) {
+                if (window.matchMedia('(min-width: 992px)').matches) {
+                    var header = $('.horizontal-menu');
+                    if ($(window).scrollTop() >= 76) {
+                        $(header).addClass('fixed-on-scroll');
+                    } else {
+                        $(header).removeClass('fixed-on-scroll');
+                    }
+                }
+            }
+        }
     };
 </script>
