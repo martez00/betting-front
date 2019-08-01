@@ -12,7 +12,7 @@
                     <div class="modal-body">
                         <slot name="body">
                             <div class="alert alert-danger" v-if="has_error">
-                                <p>Erreur, impossible de se connecter avec ces identifiants.</p>
+                                Sorry, but it looks like you credentials are incorrect!
                             </div>
                             <form autocomplete="off" @submit.prevent="login" method="post">
                                 <div class="form-group">
@@ -49,14 +49,19 @@
         },
         methods: {
             login() {
-                var app = this
                 this.$auth.login({
                     params: {
-                        email: app.email,
-                        password: app.password
+                        email: this.email,
+                        password: this.password
                     },
-                    success: function () {},
-                    error: function () {},
+                    success: function () {
+                        this.success = true;
+                        this.close();
+                    },
+                    error: function (res) {
+                        this.has_error = true;
+                        this.errors = res.response.data.error || {}
+                    },
                     rememberMe: true,
                     fetchUser: true,
                 });
