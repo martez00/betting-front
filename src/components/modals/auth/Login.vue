@@ -27,7 +27,7 @@
                       </span>
                             </div>
                             <input type="password" class="form-control form-control-lg border-left-0"
-                                   id="password" placeholder="You password" required>
+                                   id="password" placeholder="You password" v-model="password" required>
                         </div>
                     </div>
                     <div class="row">
