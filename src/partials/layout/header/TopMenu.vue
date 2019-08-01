@@ -8,7 +8,7 @@
                 </div>
                 <ul class="navbar-nav navbar-nav-right">
                     <li class="nav-item dropdown  d-lg-flex d-none">
-                        <button type="button" class="btn btn-inverse-primary btn-sm" v-if="!$auth.check()" @click="showLoginModal">Sign In</button>
+                        <button type="button" class="btn btn-inverse-primary btn-sm" v-if="!$auth.check()" @click="showSignInModal">Sign In</button>
                     </li>
                     <li class="nav-item nav-profile dropdown" v-if="$auth.check()">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
@@ -28,28 +28,28 @@
                 </button>
             </div>
         </div>
-        <LoginModal  v-if="showLogin" @close="closeLoginModal"/>
+        <SignInModal  v-if="showSignIn" @close="closeSignInModal"/>
     </nav>
 </template>
 
 <script>
-    import LoginModal from '@/components/modals/auth/Login';
+    import SignInModal from '@/components/modals/auth/SignIn';
     export default {
         name: "TopMenu.vue",
         components: {
-            LoginModal
+            SignInModal
         },
         data() {
             return {
-                showLogin: false,
+                showSignIn: false,
             };
         },
         methods: {
-            closeLoginModal() {
-                this.showLogin = false;
+            closeSignInModal() {
+                this.showSignIn = false;
             },
-            showLoginModal() {
-                this.showLogin = true;
+            showSignInModal() {
+                this.showSignIn = true;
             },
         }
     }
