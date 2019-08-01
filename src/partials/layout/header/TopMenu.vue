@@ -13,7 +13,7 @@
                                 @click="showSignInModal">Sign In
                         </button>
                     </li>
-                    <li class="nav-item nav-profile dropdown" v-bind:class="" v-if="$auth.check()">
+                    <li class="nav-item nav-profile dropdown" v-if="$auth.check()">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                             <span class="nav-profile-name">{{ $auth.user().name }}</span>
                             <span class="online-status"></span>
