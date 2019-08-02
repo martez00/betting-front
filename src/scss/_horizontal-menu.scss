@@ -129,9 +129,6 @@
 						color: theme-color(dark);
 						font-weight: 600;
 						margin-right: .5rem;
-						@media (max-width: 767px) {
-							display: none;
-						}
 						}
 						&.dropdown {
 						.dropdown-toggle {

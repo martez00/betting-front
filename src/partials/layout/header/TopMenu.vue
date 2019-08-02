@@ -8,7 +8,7 @@
                     <router-link class="navbar-brand brand-logo-mini" to="/">Betting</router-link>
                 </div>
                 <ul class="navbar-nav navbar-nav-right">
-                    <li class="nav-item dropdown  d-lg-flex d-none">
+                    <li class="nav-item dropdown">
                         <button type="button" class="btn btn-inverse-primary btn-sm" v-if="!$auth.check()"
                                 @click="showSignInModal">Sign In
                         </button>
@@ -20,6 +20,10 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
                              aria-labelledby="profileDropdown">
+                            <a class="dropdown-item" style="cursor:pointer" v-if="$auth.check(2)">
+                                <i class="mdi mdi-logout text-primary"></i>
+                                Admin
+                            </a>
                             <a class="dropdown-item" style="cursor:pointer" @click.prevent="$auth.logout()">
                                 <i class="mdi mdi-logout text-primary"></i>
                                 Logout
