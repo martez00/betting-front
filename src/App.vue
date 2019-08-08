@@ -19,10 +19,10 @@
             return {};
         },
         created() {
-            window.addEventListener('scroll', this.headerFixed);
+            //window.addEventListener('scroll', this.headerFixed);
         },
         destroyed() {
-            window.removeEventListener('scroll', this.headerFixed);
+            //window.removeEventListener('scroll', this.headerFixed);
         },
         methods: {
             headerFixed(event) {

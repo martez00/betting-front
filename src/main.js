@@ -20,6 +20,8 @@ axios.defaults.baseURL = apiURL;
 window.$ = JQuery
 import 'chart.js'
 
+Vue.config.productionTip = false
+
 Vue.router = router
 Vue.use(require('@websanova/vue-auth'), {
     auth: require('@websanova/vue-auth/drivers/auth/bearer.js'),

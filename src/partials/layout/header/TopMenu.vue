@@ -20,10 +20,10 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
                              aria-labelledby="profileDropdown">
-                            <a class="dropdown-item" style="cursor:pointer" v-if="$auth.check(2)">
-                                <i class="mdi mdi-logout text-primary"></i>
+                            <router-link class="dropdown-item" style="cursor:pointer" to="/admin" v-if="$auth.check(2)">
+                                <i class="mdi mdi-settings text-primary"></i>
                                 Admin
-                            </a>
+                            </router-link>
                             <a class="dropdown-item" style="cursor:pointer" @click.prevent="$auth.logout()">
                                 <i class="mdi mdi-logout text-primary"></i>
                                 Logout
